@@ -110,10 +110,42 @@ const CardNewComic = () => {
     }
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-6 text-center">Komik Terbaru</h2>
+           <div className="container mx-auto px-4 py-8">
+            <h2 className="text-2xl font-bold mb-6 text-center text-gray-100">Komik Terbaru</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 lg:grid-cols-4 md:mx-16 gap-4">
-                {comics.map(renderComicCard)}
+                {comics.map((comic) => (
+                    <div
+                        key={comic.title}
+                        className="bg-[#1E1E1E] shadow-2xl rounded-lg overflow-hidden transform transition duration-300 hover:scale-105"
+                    >
+                        <div className="relative">
+                            <img
+                                src={comic.image}
+                                alt={comic.title}
+                                className="w-full h-64 object-cover"
+                                onError={(e) => {
+                                    e.target.src = 'https://via.placeholder.com/300x450?text=Comic+Cover'
+                                }}
+                            />
+                            <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded">
+                                {comic.chapter}
+                            </div>
+                        </div>
+                        <div className="p-4">
+                            <h3 className="font-bold text-lg truncate mb-2 text-gray-100">{comic.title}</h3>
+                            <div className="flex items-center justify-between">
+                                <span className="text-sm text-gray-400">{comic.source}</span>
+                                <span className="text-sm text-gray-400">★ {comic.popularity}</span>
+                            </div>
+                            <button
+                                onClick={() => handleComicDetail(comic)}
+                                className="mt-2 block w-full bg-indigo-700 text-white py-2 rounded hover:bg-indigo-600 transition text-center"
+                            >
+                                Baca Komik
+                            </button>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     )

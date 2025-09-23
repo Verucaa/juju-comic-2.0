@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/detail-comic/:slug" element={<DetailComic />} />
-        <Route path="/read-comic" element={<ReadComic />} />
+        <Route path="/read-comic/:slug/:chapterSlug" element={<ReadComic />} />
       </Routes>
     </Router>
   )

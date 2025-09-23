@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { useNavigate, Link, useLocation, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const DetailComic = () => {
-    const { slug } = useParams()  // Ambil slug dari URL
+    const navigate = useNavigate()
+    const { slug } = useParams()
     const location = useLocation()
     const { comic, processedLink } = location.state || {}
     const [comicDetail, setComicDetail] = useState(null)
@@ -13,22 +14,39 @@ const DetailComic = () => {
     useEffect(() => {
         const fetchComicDetail = async () => {
             try {
-                // Gunakan processedLink yang sudah diproses sebelumnya
-                const response = await axios.get(`https://www.sankavollerei.com/comic/comic${processedLink}`)
-
+                // Pastikan processedLink tidak memiliki slash di awal
+                const cleanProcessedLink = processedLink?.startsWith('/') ? processedLink.substring(1) : processedLink
+                
+                const response = await axios.get(`https://www.sankavollerei.com/comic/comic/${cleanProcessedLink}`)
                 console.log("Fetched comic detail:", response.data)
+
+                // Jika tidak ada data, gunakan fallback
+                if (!response.data) {
+                    throw new Error('Tidak ada data komik yang ditemukan')
+                }
 
                 setComicDetail(response.data)
                 setLoading(false)
             } catch (err) {
-                setError(err)
-                setLoading(false)
                 console.error("Error fetching comic detail:", err)
+                // Tampilkan pesan error yang lebih informatif
+                setError(err.response?.data?.message || err.message || 'Terjadi kesalahan saat mengambil detail komik')
+                setLoading(false)
+                
+                // Set default comic detail jika diperlukan
+                setComicDetail({
+                    synopsis: "Synopsis tidak tersedia.",
+                    chapters: [],
+                    creator: "Unknown"
+                })
             }
         }
 
         if (processedLink) {
             fetchComicDetail()
+        } else {
+            setError('Link komik tidak valid')
+            setLoading(false)
         }
     }, [processedLink])
 
@@ -55,6 +73,23 @@ const DetailComic = () => {
     if (!comic) {
         return <div>Komik tidak ditemukan</div>
     }
+
+    // New function to handle reading the comic
+    const handleReadComic = () => {
+    if (comicDetail?.chapters && comicDetail.chapters.length > 0) {
+        const firstChapter = comicDetail.chapters[0]
+        
+        navigate(`/read-comic/${slug}/chapter-${firstChapter.chapter}`, { 
+            state: { 
+                chapterLink: firstChapter.link,
+                comicTitle: comic.title,
+                chapterNumber: firstChapter.chapter,
+            } 
+        })
+    } else {
+        alert('No chapters available')
+    }
+}
 
     return (
         <div className="container mx-auto p-6">
@@ -84,27 +119,31 @@ const DetailComic = () => {
                     <div className="mt-6">
                         <h3 className="text-xl font-semibold mb-3">Daftar Chapter</h3>
                         <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
-                            {comicDetail?.chapters?.map((chapter, index) => (
-                                <a
-                                    key={index}
-                                    href={`https://www.sankavollerei.com${chapter.link}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-gray-100 hover:bg-gray-200 p-2 rounded text-center text-sm"
-                                >
-                                    {chapter.chapter}
-                                </a>
-                            ))}
+                           {comicDetail?.chapters?.map((chapter, index) => (
+    <button
+        key={index}
+        onClick={() => navigate(`/read-comic/${slug}/chapter-${chapter.chapter}`, { 
+            state: { 
+                chapterLink: chapter.link,
+                comicTitle: comic.title,
+                chapterNumber: chapter.chapter,
+            } 
+        })}
+        className="bg-gray-100 hover:bg-gray-200 p-2 rounded text-center text-sm"
+    >
+        {chapter.chapter}
+    </button>
+))}
                         </div>
                     </div>
 
                     <div className="flex space-x-4 mt-6">
-                        <Link
-                            to={'/read-comic'}
+                        <button
+                            onClick={handleReadComic}
                             className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition"
                         >
-                            Baca Sekarang
-                        </Link>
+                            Baca
+                        </button>
 
                         <div className="flex items-center space-x-2">
                             <span className="text-gray-600">Sumber:</span>
