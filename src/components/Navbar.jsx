@@ -28,6 +28,8 @@ const Navbar = () => {
         return location.pathname === path
     }
 
+    const isUnlimitedPage = location.pathname === '/unlimited';
+
     return (
         <nav className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-lg transition-colors">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,7 +78,7 @@ const Navbar = () => {
                         </div>
 
                         {/* Theme Toggle */}
-                        <ThemeToggle />
+                        {!isUnlimitedPage && <ThemeToggle />}
 
                         {/* Mobile menu button */}
                         <button

@@ -1,8 +1,15 @@
 import React from 'react'
 import CardUnlimitedComic from '../components/Home/CardUnlimitedComic'
 import SEO from '../components/SEO'
+import { useTheme } from '../contexts/ThemeContext'
 
 const UnlimitedPage = () => {
+    const { setTheme } = useTheme()
+
+    useEffect(() => {
+        setTheme('dark')
+    }, [setTheme])
+    
     return (
         <>
             <SEO
