@@ -1,36 +1,69 @@
-# React + Vite
+# Juju Manhwa 2.0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Platform baca manhwa/komik modern yang dibangun dengan React dan Vite.
 
-Currently, two official plugins are available:
+## 🚀 Teknologi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework**: React
+- **Build Tool**: Vite
+- **Package Manager**: npm/yarn/pnpm
+- **HMR**: Hot Module Replacement untuk pengembangan yang cepat
 
-## Expanding the ESLint configuration
+## 🔌 Plugin Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Template ini menggunakan salah satu dari dua plugin oficial React:
 
----
+- **[@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react)** - Menggunakan [Babel](https://babeljs.io/) untuk Fast Refresh
+- **[@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc)** - Menggunakan [SWC](https://swc.rs/) untuk Fast Refresh
 
-## Live Deployment
+## 📚 API & Resources
 
-### Vercel
+**Comic API**: [https://www.sankavollerei.com/comic](https://www.sankavollerei.com/comic)
 
-Host your own instance of <a href="https://juju-manhwa-2-0.vercel.app">juju-otaku2.0</a>  on vercel
+## 🔗 Project History
 
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/SankaVollereii/juju-manhwa-2.0)
+- **Original Source**: [Rhakelino/juju-manhwa-2.0](https://github.com/Rhakelino/juju-manhwa-2.0)
+- **First Recode**: [idlanyor/manhwa](https://github.com/idlanyor/manhwa)
+- **Latest Version**: [SankaVollereii/juju-manhwa-2.0](https://github.com/SankaVollereii/juju-manhwa-2.0)
 
----
+## 📦 Instalasi
 
-### 💻 Source Code
+```sh
+# Clone repository
+git clone https://github.com/SankaVollereii/juju-manhwa-2.0.git
+cd juju-manhwa-2.0
 
-Api Comic: **[https://www.sankavollerei.com/comic](https://www.sankavollerei.com/comic)**
+# Install dependencies
+npm install
+```
 
-Source code: **[https://github.com/Rhakelino/juju-manhwa-2.0](https://github.com/Rhakelino/juju-manhwa-2.0)**
+## 🛠️ Development
 
-Recode By: **[https://github.com/idlanyor/manhwa](https://github.com/idlanyor/manhwa)**
+```sh
+# Menjalankan development server
+npm run dev
+```
 
-Latest Recode By: **[https://github.com/SankaVollereii/juju-manhwa-2.0](https://github.com/SankaVollereii/juju-manhwa-2.0)**
+## 🏗️ Build
 
----
+```sh
+# Build untuk production
+npm run build
+
+# Preview hasil build
+npm run preview
+```
+
+## ⚙️ ESLint Configuration
+
+Untuk aplikasi production, disarankan menggunakan TypeScript dengan type-aware lint rules. Lihat [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) untuk informasi cara mengintegrasikan TypeScript dan [typescript-eslint](https://typescript-eslint.io) ke dalam project Anda.
+
+## 🤝 Contributing
+
+Kontribusi, issues, dan feature requests sangat diterima!
+
+## 👨‍💻 Credits
+
+**Latest Maintainer**: [SankaVollerei](https://github.com/SankaVollereii)
+
+Special thanks to [Rhakelino](https://github.com/Rhakelino) dan [idlanyor](https://github.com/idlanyor) untuk versi sebelumnya.
