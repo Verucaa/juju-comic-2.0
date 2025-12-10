@@ -1,15 +1,15 @@
 import React from 'react';
 
 const SEO = ({
-  title = 'Kanata-Toon - Baca Komik Gratis Bahasa Indonesia Terbaru',
+  title = 'VeruKomik - Baca Komik Gratis Bahasa Indonesia Terbaru',
   description = 'Baca komik online gratis di Kanata-Toon. Koleksi lengkap komik terbaru, trending, dan populer dalam bahasa Indonesia. Update setiap hari!',
   keywords = 'komik indonesia, baca komik gratis, komik online, manga indonesia, manhwa indonesia, komik terbaru, komik trending',
-  image = 'https://juju-manhwa-2-0.vercel.app/vite.svg',
-  url = 'https://juju-manhwa-2-0.vercel.app/',
+  image = 'https://verukomik.vercel.app/vite.svg',
+  url = 'https://verukomik.vercel.app/',
   type = 'website',
   structuredData = null
 }) => {
-  const siteTitle = 'Kanata-Toon';
+  const siteTitle = 'VeruKomik';
   const fullTitle = title.includes(siteTitle) ? title : `${title} - ${siteTitle}`;
 
   return (
