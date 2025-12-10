@@ -74,7 +74,7 @@ const Home = () => {
 
                   {/* Title */}
                   <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent text-center">
-                    Pustaka Komik
+                    VeruKomik
                   </h3>
 
                   {/* Description */}
