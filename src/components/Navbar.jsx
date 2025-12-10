@@ -46,7 +46,7 @@ const Navbar = () => {
                         </div>
                         <div className="hidden sm:block">
                             <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                                KanataToon
+                                VeruKomik
                             </h1>
                         </div>
                     </Link>
