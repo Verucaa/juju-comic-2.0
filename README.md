@@ -1,4 +1,4 @@
-# Juju Manhwa 2.0
+# Juju Comic 2.0
 
 Platform baca manhwa/komik modern yang dibangun dengan React dan Vite.
 
