@@ -11,10 +11,10 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Kanata-Toon - Baca Komik Gratis Bahasa Indonesia Terbaru"
+        title="VeruKomik - Baca Komik Gratis Bahasa Indonesia Terbaru"
         description="Baca komik online gratis di Kanata-Toon. Koleksi lengkap komik terbaru, trending, dan populer dalam bahasa Indonesia. Update setiap hari!"
         keywords="komik indonesia, baca komik gratis, komik online, manga indonesia, manhwa indonesia"
-        url="https://juju-manhwa-2-0.vercel.app/"
+        url="https://verukomik.vercel.app/"
       />
       <div className="relative bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 dark:from-[#0a0a0a] dark:via-[#121212] dark:to-[#1a1a1a] min-h-screen text-gray-900 dark:text-gray-100 transition-colors">
       {/* Background decorative elements */}
@@ -104,10 +104,10 @@ const Home = () => {
             <div className="border-t border-gray-300 dark:border-gray-700 pt-8">
               <div className="text-center">
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  KanataToon - Platform baca komik online terbaik
+                  VeruKomik - Platform baca komik online terbaik
                 </p>
                 <p className="text-gray-500 dark:text-gray-500 text-xs mt-2">
-                  &copy; 2024 KanataToon. All rights reserved.
+                  &copy; 2025 VeruKomik. All rights reserved.
                 </p>
               </div>
             </div>
